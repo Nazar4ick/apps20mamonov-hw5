@@ -8,7 +8,8 @@ public class MapIterator implements Iterator<Integer> {
     private final IntUnaryOperator intUnaryOperator;
     private final Iterator<Integer> iterator;
 
-    public MapIterator(Iterator<Integer> iterator, IntUnaryOperator intUnaryOperator) {
+    public MapIterator(Iterator<Integer> iterator,
+                       IntUnaryOperator intUnaryOperator) {
         this.iterator = iterator;
         this.intUnaryOperator = intUnaryOperator;
     }

@@ -3,13 +3,15 @@ package ua.edu.ucu.iterators;
 import ua.edu.ucu.function.IntPredicate;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class FilterIterator implements Iterator<Integer> {
     private final IntPredicate intPredicate;
     private final Iterator<Integer> iterator;
     private int current;
 
-    public FilterIterator(Iterator<Integer> iterator, IntPredicate intPredicate) {
+    public FilterIterator(Iterator<Integer> iterator,
+                          IntPredicate intPredicate) {
         this.iterator = iterator;
         this.intPredicate = intPredicate;
     }
@@ -26,7 +28,7 @@ public class FilterIterator implements Iterator<Integer> {
     }
 
     @Override
-    public Integer next() {
+    public Integer next() throws NoSuchElementException {
         return current;
     }
 }

@@ -10,7 +10,8 @@ public class FlatMapIterator implements Iterator<Integer> {
     private final IntToIntStreamFunction streamFunction;
     private AsIntStream currentStream;
 
-    public FlatMapIterator(Iterator<Integer> iterator, IntToIntStreamFunction streamFunction) {
+    public FlatMapIterator(Iterator<Integer> iterator,
+                           IntToIntStreamFunction streamFunction) {
         this.iterator = iterator;
         this.streamFunction = streamFunction;
     }
@@ -27,7 +28,8 @@ public class FlatMapIterator implements Iterator<Integer> {
     @Override
     public Integer next() {
         if (currentStream == null) {
-            currentStream = (AsIntStream) streamFunction.applyAsIntStream(iterator.next());
+            currentStream = (AsIntStream)
+                    streamFunction.applyAsIntStream(iterator.next());
         }
         return currentStream.getIterator().next();
     }

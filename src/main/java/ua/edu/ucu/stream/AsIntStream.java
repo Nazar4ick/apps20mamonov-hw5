@@ -1,12 +1,15 @@
 package ua.edu.ucu.stream;
 
-import ua.edu.ucu.function.*;
+import ua.edu.ucu.function.IntToIntStreamFunction;
+import ua.edu.ucu.function.IntUnaryOperator;
+import ua.edu.ucu.function.IntPredicate;
+import ua.edu.ucu.function.IntConsumer;
+import ua.edu.ucu.function.IntBinaryOperator;
 import ua.edu.ucu.iterators.BasicIterator;
 import ua.edu.ucu.iterators.FilterIterator;
 import ua.edu.ucu.iterators.FlatMapIterator;
 import ua.edu.ucu.iterators.MapIterator;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class AsIntStream implements IntStream {
@@ -123,21 +126,5 @@ public class AsIntStream implements IntStream {
 
     public Iterator<Integer> getIterator() {
         return iterator;
-    }
-
-    public static void main(String[] args) {
-        IntStream intStream = AsIntStream.of(-5, 3, -1, 9, -11, 19, 68);
-        System.out.println(intStream.sum());
-        System.out.println(intStream.count());
-        System.out.println((double)intStream.sum() / (double)intStream.count());
-//        System.out.println(intStream.sum());
-//        System.out.println(intStream.count());
-//        System.out.println(intStream.average());
-//        System.out.println(intStream.max());
-//        System.out.println(intStream.min());
-//        System.out.println(Arrays.toString(intStream.toArray()));
-//        System.out.println(intStream.reduce(1, (mult, x) -> mult *= x));
-//        intStream = intStream.flatMap(x -> AsIntStream.of(x - 1, x, x+1));
-//        System.out.println(Arrays.toString(intStream.toArray()));
     }
 }
